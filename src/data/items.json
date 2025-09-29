@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "coffee maker",
+    "price": 5200,
+    "imgUrl": "imgs/coffee maker.jpg"
+  },
+  {
+    "id": 2,
+    "name": "air fryer",
+    "price": 7800,
+    "imgUrl": "/imgs/air fryer.jpg"
+  },
+  {
+    "id": 3,
+    "name": "kitchen machine",
+    "price": 4100,
+    "imgUrl": "/imgs/kitchen machine.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Iron",
+    "price": 2600,
+    "imgUrl": "/imgs/iron.jpg"
+  }
+]
