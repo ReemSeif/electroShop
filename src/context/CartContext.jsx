@@ -24,7 +24,7 @@ localStorage.setItem('cart' , JSON.stringify(cartitems))
     const addtoCart=(id)=>{
         setCartItems((prevItem)=>{
             if(prevItem.find(item=> item.id=== id) == null){
-                return [...prevItem, {id, quantity: 1}];
+                return [...prevItem, {id,price, quantity: 1}];
             }
             else {
                 return prevItem.map(item => {
@@ -55,7 +55,7 @@ localStorage.setItem('cart' , JSON.stringify(cartitems))
     setCartItems((Items) => Items.filter((item) => item.id !== id));
   };
   return (
-   <shoppingCartContext.Provider value={{cartitems , cartQuantity , getItemsCount , addtoCart , decreaseCount ,removeFromCart ,openCart ,closeCart }}>
+   <shoppingCartContext.Provider value={{cartitems , cartQuantity  , getItemsCount , addtoCart , decreaseCount ,removeFromCart ,openCart ,closeCart }}>
     {children}
     <Cart isOpen={isopen} />
    </shoppingCartContext.Provider>

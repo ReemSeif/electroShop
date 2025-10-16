@@ -1,26 +1,45 @@
 [
   {
     "id": 1,
-    "name": "coffee maker",
+    "name": "head set",
     "price": 5200,
-    "imgUrl": "imgs/coffee maker.jpg"
+    "imgUrl": "imgs/headphones.jpg"
   },
   {
     "id": 2,
-    "name": "air fryer",
-    "price": 7800,
-    "imgUrl": "/imgs/air fryer.jpg"
+    "name": "wireless mouse",
+    "price": 950,
+    "imgUrl": "/imgs/mouse.jpg"
   },
   {
     "id": 3,
-    "name": "kitchen machine",
-    "price": 4100,
-    "imgUrl": "/imgs/kitchen machine.jpg"
+    "name": "laptop dell 3500",
+    "price": 44100,
+    "imgUrl": "/imgs/laptop.jpg"
   },
   {
     "id": 4,
-    "name": "Iron",
-    "price": 2600,
-    "imgUrl": "/imgs/iron.jpg"
+    "name": "apple macbook",
+    "price": 112600,
+    "imgUrl": "/imgs/macbook_PNG65.png"
+  },
+
+   {
+    "id": 5,
+    "name": "wired mouse",
+    "price": 600,
+    "imgUrl": "imgs/mouse-png-16.png"
+  },
+   {
+    "id": 6,
+    "name": "iphone 15 pro max",
+    "price": 111400,
+    "imgUrl": "/imgs/iphone 15 pro max.avif"
+  },
+   {
+    "id": 7,
+    "name": "ear phone lightening",
+    "price": 2000,
+    "imgUrl": "/imgs/ear phones.jpg"
   }
 ]

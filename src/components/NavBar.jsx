@@ -3,15 +3,27 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { useCart } from '../context/CartContext';
 function NavBar() {
-  const {cartQuantity, openCart} = useCart();
+  const { cartQuantity, openCart } = useCart();
   return (
-    <Navbar sticky='top' className='bg-whte shadow-sm mb-3'>
-      
+    <Navbar sticky='top' className='bg-whte shadow-sm'>
+
       <Container>
+        <div className="d-flex align-items-center me-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            className="bi bi-bag-check"
+            viewBox="0 0 16 16"
+          >
+            <path d="M10.5 3.5A1.5 1.5 0 0 1 12 5v1h-1V5a.5.5 0 0 0-.5-.5H5A.5.5 0 0 0 4.5 5v1h-1V5A1.5 1.5 0 0 1 5 3.5h5.5zM4.5 6h7v7a1.5 1.5 0 0 1-1.5 1.5h-4A1.5 1.5 0 0 1 4.5 13V6zm2.854 2.354a.5.5 0 0 0-.708-.708L5.5 8.793l-.646-.647a.5.5 0 1 0-.708.708l1 1a.5.5 0 0 0 .708 0l1.5-1.5z" />
+          </svg>
+          <h5 className="m-0 fw-bold">ElectroShop</h5>
+        </div>
         <Nav className='me-auto'>
-          <Nav.Link as={NavLink} to="home">Home</Nav.Link>
+          <Nav.Link as={NavLink} to="/">Home</Nav.Link>
           <Nav.Link as={NavLink} to="store">Store</Nav.Link>
-          <Nav.Link as={NavLink} to="about">About</Nav.Link>
         </Nav>
         <Button onClick={openCart} variant='outline-dark' className='rounded-circle' style={{ width: '3rem', height: '3rem', position: 'relative' }}>
           <svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 31 25" xml:space="preserve">
@@ -25,6 +37,29 @@ function NavBar() {
           </svg>
           <div className='rounded-circle bg-danger' style={{ position: 'absolute', width: '1.4rem', height: "1.4rem", bottom: 0, right: 0, transform: "translate(25% , 25%)" }}>{cartQuantity}</div>
         </Button>
+      <Nav.Link
+  as={NavLink}
+  to="/login"
+  className="d-flex justify-content-center align-items-center border border-dark rounded-circle text-dark ms-2"
+  style={{ width: '3rem', height: '3rem' }}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    fill="currentColor"
+    className="bi bi-person"
+    viewBox="0 0 16 16"
+  >
+    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+    <path
+      fillRule="evenodd"
+      d="M8 9a5 5 0 0 0-5 5v.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V14a5 5 0 0 0-5-5z"
+    />
+  </svg>
+</Nav.Link>
+
+
       </Container>
     </Navbar>
   )

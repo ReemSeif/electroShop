@@ -5,8 +5,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './components/Home'
 import Store from './components/Store'
-import About from './components/About'
 import CartContext from './context/CartContext'
+import Login from './components/Login'
 
 function App() {
  
@@ -14,9 +14,9 @@ let router=createBrowserRouter([
   {
     path: '', element:<Layout />,
     children: [
-      {path: 'home', element: <Home/>},
+      {index: true, element: <Home/>},
       {path: 'store' , element:<Store/>},
-       {path: 'about' , element:<About/>}
+      {path:'login' , element:<Login/>}
     ]
   },
   {path: '*', element: <h1>Page Not Found</h1> }

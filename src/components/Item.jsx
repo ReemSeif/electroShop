@@ -8,10 +8,10 @@ function Item({id , name , price ,imgUrl}) {
  
   return (
 <Card className='h-100'>
-    <Card.Img variant="top" src={imgUrl} style={{height:'300px' , objectFit:'cover'}}/>
+    <Card.Img variant="top" src={imgUrl} style={{height:'250px' , objectFit:'cover'}}/>
     <Card.Body>
       <Card.Title className='d-flex justify-content-between align-items-baseline mb-4'>
-         <span className='fs-3'>{name}</span>
+         <span className='fs-6'>{name}</span>
          <span className='text-muted me-2 fs-5'> {price} EGP</span>
          </Card.Title>
     
@@ -24,7 +24,7 @@ function Item({id , name , price ,imgUrl}) {
             <div className='me-auto d-flex align-items-baseline'style={{gap:'.5rem'}}> 
                <Button variant='outline-secondary' onClick={()=>decreaseCount(id)}>-</Button>
             <span className='mx-2 fs-6' >{quantity}</span>
-              <Button variant='outline-secondary' onClick={()=>addtoCart(id)}>+</Button>
+              <Button variant='outline-secondary' onClick={()=>addtoCart(id , price)}>+</Button>
               </div>
             <Button variant='outline-danger'onClick={()=>removeFromCart(id)}>remove</Button>
             </div>
