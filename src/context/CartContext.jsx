@@ -24,7 +24,7 @@ localStorage.setItem('cart' , JSON.stringify(cartitems))
     const addtoCart=(id)=>{
         setCartItems((prevItem)=>{
             if(prevItem.find(item=> item.id=== id) == null){
-                return [...prevItem, {id,price, quantity: 1}];
+                return [...prevItem, {id, quantity: 1}];
             }
             else {
                 return prevItem.map(item => {

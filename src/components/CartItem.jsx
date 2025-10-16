@@ -1,10 +1,9 @@
 import React from 'react'
 import { Button, Stack } from 'react-bootstrap'
-import StoreItems from '../data/items.json'
 import { useCart } from '../context/CartContext';
 
-function CartItem({id , quantity}) {
-    let item =StoreItems.find(item => item.id === id);
+function CartItem({id , quantity , storeItems}) {
+    let item =storeItems.find(item => item.id === id);
     if (item == null) return null; 
     const { removeFromCart } = useCart();
   
