@@ -2,8 +2,10 @@ import React from 'react'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 function NavBar() {
   const { cartQuantity, openCart } = useCart();
+  const {currentuser} = useAuth();
   return (
     <Navbar sticky='top' className='bg-whte shadow-sm'>
 
@@ -25,7 +27,8 @@ function NavBar() {
           <Nav.Link as={NavLink} to="/">Home</Nav.Link>
           <Nav.Link as={NavLink} to="store">Store</Nav.Link>
         </Nav>
-        <Button onClick={openCart} variant='outline-dark' className='rounded-circle' style={{ width: '3rem', height: '3rem', position: 'relative' }}>
+        {
+          currentuser && <Button onClick={openCart} variant='outline-dark' className='rounded-circle' style={{ width: '3rem', height: '3rem', position: 'relative' }}>
           <svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 31 25" xml:space="preserve">
             <path d="M29.747,2.496c-0.815-0.14-1.59,0.415-1.727,1.232L25.361,13H9.203L5.55,2.039C5.144,0.819,4.007,0,2.721,0H1.5
 		C0.672,0,0,0.672,0,1.5S0.672,3,1.5,3l1.204-0.013l5.07,15.214c0.522,1.565,1.924,2.639,3.547,2.772
@@ -37,10 +40,12 @@ function NavBar() {
           </svg>
           <div className='rounded-circle bg-danger' style={{ position: 'absolute', width: '1.4rem', height: "1.4rem", bottom: 0, right: 0, transform: "translate(25% , 25%)" }}>{cartQuantity}</div>
         </Button>
+        }
+        
       <Nav.Link
-  as={NavLink}
-  to="/login"
-  className="d-flex justify-content-center align-items-center border border-dark rounded-circle text-dark ms-2"
+        as={NavLink}
+           to={currentuser ? "/profile" : '/login'}
+         className="d-flex justify-content-center align-items-center border border-dark rounded-circle text-dark ms-2"
   style={{ width: '3rem', height: '3rem' }}
 >
   <svg

@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Form, Button, Card, Container, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../context/AuthContext';
-
-function Login() {
-  const {signIn , currentuser} = useAuth();
+function SignUp() {
+const {signUp , currentuser} = useAuth();
 const [error , setError] = useState('');
 const [loading , setLoading] = useState(false);
 const emailRef = useRef();
@@ -19,8 +18,8 @@ async function handleSubmit  (e) {
    try{
     setLoading(true);
     setError('');
-   await signIn(emailRef.current.value , passRef.current.value);
-    console.log("Signed in successful ✅");
+   await signUp(emailRef.current.value , passRef.current.value);
+    console.log("Signup successful ✅");
    }catch(err){
     setError(err.message);
    }
@@ -29,34 +28,36 @@ async function handleSubmit  (e) {
   }
 }
   return (
-      <Container
+   <Container
       className="d-flex justify-content-center align-items-center"
       style={{ minHeight: "100vh" }}
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
-        <Card className="shadow-sm border-0">
+        <Card className="shadow-sm border-1">
           <Card.Body>
-            <h3 className="text-center mb-4">Sign in to your Account</h3>
-             {error && <Alert variant="danger">{error}</Alert>}
+            <h3 className="text-center mb-4">Create an Account</h3>
+            {
+              error && <Alert variant='danger'>{error}</Alert>
+            }
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control ref={emailRef} type="email" placeholder="Enter your email" />
+                <Form.Control type="email" placeholder="Enter your email" ref={emailRef}/>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control ref={passRef}type="password" placeholder="Enter password" />
+                <Form.Control type="password" placeholder="Enter password" ref={passRef}/>
               </Form.Group>
 
-              <Button  disabled={loading} variant="danger" type="submit" className="w-100 mt-2">
-                Login
+              <Button disabled={loading} variant="danger" type="submit" className="w-100 mt-2">
+                Register
               </Button>
             </Form>
 
             <div className="text-center mt-3">
-              <span>Don’t have an account? </span>
-              <Link style={{ color: "black" }}to="/signup">register</Link>
+              <span>Already have an account? </span>
+              <Link style={{ color: "black" }} to="/login">login</Link>
             </div>
           </Card.Body>
         </Card>
@@ -65,4 +66,4 @@ async function handleSubmit  (e) {
   )
 }
 
-export default Login
+export default SignUp
